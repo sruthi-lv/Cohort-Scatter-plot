@@ -83,15 +83,15 @@
 
             // Animate the bubbles
             function animateBubbles() {
+                // Reset bubble size to 0 before starting the next loop
                 bubbles
+                    .attr("r", 0)
                     .transition()
-                    .duration(1000)  // Grow duration
+                    .duration(2000)  // Grow duration (smoothly grow bubbles)
                     .attr("r", d => sizeScale(d.inc_trial_conversion))
-                    .transition()
-                    .duration(1000)  // Shrink duration
-                    .attr("r", 0)  // Shrink the bubbles before looping again
                     .on("end", function() {
-                        setTimeout(animateBubbles, 500);  // Small delay before looping
+                        // Restart the animation after a short delay
+                        setTimeout(animateBubbles, 500);  // Small delay before next loop
                     });
             }
 
