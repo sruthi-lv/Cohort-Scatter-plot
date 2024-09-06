@@ -85,10 +85,10 @@
             function animateBubbles() {
                 bubbles
                     .transition()
-                    .duration(2000)
+                    .duration(1000)  // Grow duration
                     .attr("r", d => sizeScale(d.inc_trial_conversion))
                     .transition()
-                    .duration(1000)
+                    .duration(1000)  // Shrink duration
                     .attr("r", 0)  // Shrink the bubbles before looping again
                     .on("end", function() {
                         setTimeout(animateBubbles, 500);  // Small delay before looping
