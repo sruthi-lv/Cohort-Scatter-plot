@@ -85,13 +85,13 @@
             function animateBubbles() {
                 bubbles
                     .transition()
-                    .duration(0)  // Reset radius immediately before each new loop
-                    .attr("r", 0)
-                    .transition()
                     .duration(2000)
                     .attr("r", d => sizeScale(d.inc_trial_conversion))
+                    .transition()
+                    .duration(1000)
+                    .attr("r", 0)  // Shrink the bubbles before looping again
                     .on("end", function() {
-                        setTimeout(animateBubbles, 1000);  // Small delay before looping
+                        setTimeout(animateBubbles, 500);  // Small delay before looping
                     });
             }
 
